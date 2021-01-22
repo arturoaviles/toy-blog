@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Articles Edited</title>
+
+    <style>
+        table,
+        th,
+        td {
+            border: 1px solid black;
+        }
+
+        table.center {
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Article Edited</h1>
+    <table>
+        <tr>
+            <th>Title</th>
+            <th>Content</th>
+            <th>Status</th>
+        </tr>
+        {% for approved_and_rejected_article in approved_and_rejected_articles %}
+        <tr>
+            <td>{{approved_and_rejected_article.title}}</td>
+            <td>{{approved_and_rejected_article.content}}</td>
+            <td>{{approved_and_rejected_article.status}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+
+</html>

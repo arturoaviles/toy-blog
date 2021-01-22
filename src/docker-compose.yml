@@ -1,0 +1,26 @@
+version: "3.4"
+
+services:
+  toy-blog:
+    image: toy-blog
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 8080:8080
+    depends_on:
+      - redis
+      - postgres
+
+  redis:
+    image: redis
+    ports:
+      - 6380:6379
+
+  postgres:
+    image: postgres
+    restart: always
+    ports:
+      - 5434:5432
+    environment:
+      POSTGRES_PASSWORD: example

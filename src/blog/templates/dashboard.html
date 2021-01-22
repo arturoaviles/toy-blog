@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+
+    <style>
+        table,
+        th,
+        td {
+            border: 1px solid black;
+        }
+
+        table.center {
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>{{website_section}}</h1>
+    <table>
+        <tr>
+            <th>Writer</th>
+            <th>Total Articles Written</th>
+            <th>Total Articles Written Last 30 days</th>
+        </tr>
+        {% for writer_article in writer_article_count %}
+        <tr>
+            <td>{{writer_article.name}}</td>
+            <td>{{writer_article.written_by__count}}</td>
+            <td></td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+
+</html>

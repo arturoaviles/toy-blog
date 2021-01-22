@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Article Approval</title>
+
+    <style>
+        table,
+        th,
+        td {
+            border: 1px solid black;
+        }
+
+        table.center {
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Article Approval</h1>
+    <table>
+        <tr>
+            <th>Title</th>
+            <th>Content</th>
+            <th>Approve/Reject</th>
+        </tr>
+        {% for article_for_approval in articles_for_approval %}
+        <tr>
+            <td>{{article_for_approval.title}}</td>
+            <td>{{article_for_approval.content}}</td>
+            <td>
+                <form method="POST">
+                    {% csrf_token %}
+                    <input type="hidden" name="id" value="{{article_for_approval.id}}">
+                    <input type="submit" name="decision" value="approve" />
+                    <input type="submit" name="decision" value="reject" />
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+
+</html>

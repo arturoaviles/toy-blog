@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+</head>
+
+<body>
+    <h2>Login</h2>
+    <form method="POST" action="">
+        {% csrf_token %}
+        <input type="text" name="username" placeholder="Username..." class="form-control">
+        <input type="password" name="password" placeholder="Password..." class="form-control">
+        <input class="btn login_btn" type="submit" value="Login">
+    </form>
+
+    {% for message in messages %}
+    <p id="messages">{{message}}</p>
+    {% endfor %}
+</body>
+
+</html>
